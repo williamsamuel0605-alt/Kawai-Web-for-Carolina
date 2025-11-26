@@ -1,183 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para ti, princesa de ojitos bonitos 💗</title>
+<meta charset="UTF-8">
+<title>Para Ti 🌸</title>
 
-  <style>
+<style>
     body {
-      background: linear-gradient(#ffd6ef, #ffe9f7, #ffd6ef);
-      font-family: "Comic Sans MS", cursive;
-      color: #ff3d9b;
-      margin: 0;
-      padding: 30px;
-      text-align: center;
+        background: linear-gradient(135deg, #ffd6eb, #ffbde6, #ffcbea);
+        font-family: 'Comic Sans MS', sans-serif;
+        text-align: center;
+        padding: 30px;
+        color: #d63384;
     }
 
     h1 {
-      font-size: 45px;
-      margin-bottom: 10px;
-      color: #ff1d8e;
-      text-shadow: 2px 2px #ffffff;
-      animation: glow 3s infinite;
+        font-size: 35px;
+        margin-bottom: 10px;
+        color: #ff5ca1;
+        text-shadow: 0 0 8px white;
     }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 5px #fff; }
-      50% { text-shadow: 0 0 20px #ff8ecf; }
-      100% { text-shadow: 0 0 5px #fff; }
+    .contenedor {
+        background: rgba(255,255,255,0.7);
+        border-radius: 20px;
+        padding: 25px;
+        width: 88%;
+        margin: auto;
+        box-shadow: 0px 0px 15px #ff8ccf;
+        backdrop-filter: blur(5px);
     }
 
-    .card {
-      background: #ffe6f3;
-      border: 3px solid #ff99d8;
-      border-radius: 20px;
-      padding: 25px;
-      width: 85%;
-      margin: auto;
-      box-shadow: 0 0 15px #ffb4df;
-      animation: float 4s ease-in-out infinite;
+    .poema {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #c21872;
+        animation: fade 1.8s ease-in-out;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0px); }
+    @keyframes fade {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
     }
 
-    #poema {
-      font-size: 22px;
-      line-height: 1.5;
-      color: #c70666;
-      margin-top: 10px;
-      white-space: pre-line;
+    img {
+        width: 220px;
+        border-radius: 20px;
+        margin-top: 15px;
+        box-shadow: 0px 0px 10px white;
+        animation: aparecer 2s;
     }
 
-    button {
-      margin-top: 30px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 20px;
-      background: #ff85c6;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ffbde9;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #ff4fab;
-      box-shadow: 0 0 20px #ff8bd9;
-    }
-
-    .kitty-img {
-      margin-top: 30px;
-      max-width: 260px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #ffa9df;
+    @keyframes aparecer {
+        0% {opacity: 0; transform: scale(0.8);}
+        100% {opacity: 1; transform: scale(1);}
     }
 
     .sparkle {
-      font-size: 30px;
-      color: #ff7fca;
-      animation: sparkle 1.5s infinite;
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: radial-gradient(circle, #ffffff, #ffb3e0);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: sparkle 1.5s linear forwards;
+        z-index: 9999;
     }
 
     @keyframes sparkle {
-      0% { opacity: 1; }
-      50% { opacity: 0.3; }
-      100% { opacity: 1; }
+        0% { opacity: 1; transform: scale(0.4) translateY(0px); }
+        50% { opacity: 0.9; transform: scale(1.2) translateY(-20px); }
+        100% { opacity: 0; transform: scale(0.2) translateY(20px); }
     }
-  </style>
+
+    button {
+        padding: 10px 20px;
+        background: #ff8ed6;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 18px;
+        margin: 10px;
+        box-shadow: 0 0 10px #ffbde6;
+    }
+
+    button:hover {
+        background: #ff74c7;
+    }
+
+</style>
 </head>
 
 <body>
 
-  <h1>💗 Para mi, tu eres mi rosa favorita 💗</h1>
+<h1>🌸 Para la chica de mirada bonita 🌸</h1>
 
-  <div class="card">
-    <div id="poema">Cargando un poquito de amor rosado…</div>
-  </div>
+<audio id="musica" loop>
+    <source src="https://files.catbox.moe/x2t6of.mp3" type="audio/mp3">
+</audio>
 
-  <button onclick="nuevoPoema()">✨ Más poesía para ti ✨</button>
+<button onclick="document.getElementById('musica').play()">🎀 Reproducir música</button>
+<button onclick="document.getElementById('musica').pause()">⏸ Pausar</button>
 
-  <!-- Cambia esta imagen por la URL directa de Imgur -->
-  <img class="kitty-img" src="TU_URL_AQUÍ" alt="Hello Kitty">
+<div class="contenedor">
 
-  <div class="sparkle">✧*:･ﾟ🌸･ﾟ:*✧</div>
+    <img id="kitty" src="https://i.imgur.com/FH63hCI.jpeg">
 
-  <script>
-    const poemas = [
-`Tu esencia trae calma,
-como si el universo entero
-hubiera aprendido a latir más suave
-solo porque tú existes.`,
+    <p class="poema" id="poema"></p>
 
-`Hay brillo en tus ojos,
-delicadeza en tus manos
-y un mundo rosado
-que nace cada vez que sonríes.`,
+</div>
 
-`Eres un regalo envuelto en ternura,
-una estrellita Sanrio
-que camina entre corazones
-encendiendo todo a su paso.`,
+<script>
+let imagenes = [
+    "https://i.imgur.com/FH63hCI.jpeg",
+    "https://i.imgur.com/sPpY0Ej.jpeg",
+    "https://i.imgur.com/8El3uHa.jpeg",
+    "https://i.imgur.com/DEYwvod.jpeg"
+];
 
-`Si algún día el cielo olvida ser bonito,
-le recordaré tus ojos,
-y volverá a pintarse,
-porque tú eres su inspiración.`,
+let poemas = [
 
-`No hace falta que lo sepas,
-pero cada latido mío
-es como una notita rosa
-escrita con tu nombre.`,
+    // 45 FRASES ROMÁNTICO FILOSÓFICAS
+    "Hay almas que iluminan sin intentarlo, como si la ternura fuera su naturaleza.",
+    "La belleza más profunda siempre nace del corazón que sabe sentir con honestidad.",
+    "A veces una mirada serena contiene más paz que mil palabras bien dichas.",
+    "Hay personas que ordenan el mundo interior con solo existir cerquita.",
+    "La bondad es una luz suave que nunca presume, pero siempre transforma.",
+    "El cariño verdadero se reconoce por la calma que deja en el pecho.",
+    "Un gesto dulce puede reparar lo que el ruido del mundo rompe diariamente.",
+    "La autenticidad es un regalo que rara vez se encuentra, pero nunca se olvida.",
+    "La dulzura es una forma silenciosa de inteligencia emocional.",
+    "Un corazón bonito puede cambiar destinos sin darse cuenta.",
+    "El alma se siente en casa cuando encuentra ternura sincera.",
+    "La suavidad es una fuerza silenciosa que solo los sensibles comprenden.",
+    "Hay presencias que curan, sin siquiera saberlo.",
+    "La calma de alguien especial es un refugio que la vida agradece siempre.",
+    "La conexión verdadera se siente como un silencio que abraza.",
+    "La ternura bien dada puede ser un milagro chiquito.",
+    "Hay luces humanas que jamás se apagan, incluso en días difíciles.",
+    "El cariño simple es más fuerte que cualquier promesa adornada.",
+    "La dulzura es un lenguaje que no necesita traducción.",
+    "El alma reconoce lo que es puro antes que la mente lo entienda.",
+    "La sensibilidad es un tesoro, no una debilidad.",
+    "Hay personas que vuelven bonito incluso lo cotidiano.",
+    "Un corazón noble siempre deja huellas suaves pero profundas.",
+    "El amor auténtico no hace ruido, hace raíces.",
+    "La delicadeza es una virtud invisible pero poderosa.",
+    "Hay miradas que sostienen más que cualquier palabra.",
+    "La ternura es una revolución silenciosa.",
+    "Las almas luminosas también brillan en los días nublados.",
+    "El cariño sincero nunca se pierde, solo encuentra nuevo espacio.",
+    "La calma que da alguien especial vale más que cualquier discurso bonito.",
+    "La belleza interior tiene eco, y llega lejos.",
+    "La amabilidad deja huellas que nunca se borran.",
+    "El amor verdadero nace de la presencia, no de la prisa.",
+    "Dos corazones pueden entenderse sin hablar cuando son transparentes.",
+    "Hay personas que enseñan a sentir bonito sin proponérselo.",
+    "La dulzura cura más que cualquier remedio.",
+    "El alma florece cuando la tratan con suavidad.",
+    "La magia más real está en los gestos sinceros.",
+    "La sensibilidad crea puentes que otros no ven.",
+    "La belleza auténtica brilla sin ruido.",
+    "La ternura es un arte para quien sabe mirar.",
+    "El respeto y la suavidad siempre construyen amor duradero.",
+    "La conexión profunda se siente incluso en silencio.",
+    "El cariño sano es ligereza, no peso.",
+    "Hay personas que son refugio sin querer serlo."
 
-`Hay un universo completo detrás de ti:
-flores tímidas,
-luces pequeñas,
-y una Kitty rosada
-que te señala como su favorita.`,
+];
 
-`Tu alma es un abrazo,
-tus gestos son algodones,
-y tu presencia,
-una lluvia de pétalos.`,
+setInterval(() => {
+    let kitty = document.getElementById("kitty");
+    let poema = document.getElementById("poema");
 
-`Si pudiera guardar tu sonrisa
-en un frasquito mágico,
-iluminaría cualquier noche,
-sin importar lo oscura que fuese.`,
+    kitty.src = imagenes[Math.floor(Math.random() * imagenes.length)];
+    poema.textContent = poemas[Math.floor(Math.random() * poemas.length)];
 
-`Eres un poema sin final,
-una carta que se sigue escribiendo sola,
-una brisa de ternura
-que no sabe apagarse.`,
+}, 3500);
 
-`No eres solo bonita,
-eres esa mezcla rara
-entre dulzura y encanto
-que convierte cualquier día gris en rosado.`,
 
-`Si alguna vez te preguntan por qué eres tan especial,
-solo señala tu corazón.
-Ahí vive algo que el mundo no conoce,
-pero yo sí: luz.`,
-
-`Tu ternura parece inventada por Sanrio,
-tu nobleza por un ángel,
-y tu belleza por el mismo cielo rosa
-que te mira orgulloso.`
-    ];
-
-    function nuevoPoema() {
-      const idx = Math.floor(Math.random() * poemas.length);
-      document.getElementById("poema").textContent = poemas[idx];
+// EFECTO DE BRILLO KAWAII
+document.addEventListener("click", function(e) {
+    for (let i = 0; i < 7; i++) {
+        const spark = document.createElement("div");
+        spark.classList.add("sparkle");
+        spark.style.left = e.clientX + "px";
+        spark.style.top = e.clientY + "px";
+        spark.style.animationDelay = (i * 0.1) + "s";
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 1500);
     }
-
-    window.onload = nuevoPoema;
-  </script>
+});
+</script>
 
 </body>
 </html>
