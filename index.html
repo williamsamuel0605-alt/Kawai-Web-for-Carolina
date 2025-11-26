@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi chica de ojitos bonitos 💗</title>
+
+    <!-- ===================== ESTILOS UNIFICADOS ===================== -->
+    <style>
+        * { box-sizing: border-box; font-family: "Poppins", system-ui, Arial; }
+
+        :root{
+          --bg-h: 330;
+          --bg-s: 70%;
+          --bg-l: 96%;
+          --accent-h: 340;
+          --accent-s: 80%;
+          --accent-l: 65%;
+        }
+
+        body {
+            margin: 0;
+            background: hsl(var(--bg-h) var(--bg-s) var(--bg-l));
+            color: #6b2a4a;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Título */
+        h1 {
+            font-size: 40px;
+            color: #ff2f9f;
+            text-shadow: 2px 2px #ffffff;
+        }
+
+        /* Tarjeta de poema */
+        .card {
+            background: #ffe6f3;
+            padding: 20px;
+            border-radius: 22px;
+            border: 2px solid #ff9ad5;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0 0 15px #ffbfe2;
+            margin-bottom: 40px;
+        }
+
+        .card p {
+            font-size: 22px;
+            color: #c90466;
+        }
+
+        .hello-kitty {
+            width: 200px;
+            margin-top: 20px;
+            filter: drop-shadow(0 0 10px white);
+        }
+
+        /* Contenedor general */
+        .wrap { 
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 18px;
+            gap: 12px;
+        }
+
+        /* Barra superior */
+        .topbar {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .topbar h1 { 
+            margin: 0; 
+            font-size: 1.25rem; 
+            color: hsl(var(--accent-h) var(--accent-s) var(--accent-l)); 
+        }
+
+        .topbar button { 
+            background: white; 
+            border: none; 
+            padding: 8px 12px; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
+            cursor: pointer; 
+        }
+
+        /* Escenario */
+        .stage {
+            width: 100%;
+            max-width: 900px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+            border-radius: 18px;
+            padding: 36px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(107,42,74,0.08);
+            margin-top: 30px;
+        }
+
+        /* Gatito */
+        .kitty { 
+            cursor: pointer; 
+            transition: transform .18s ease;
+        }
+
+        .kitty:active, .kitty:focus { 
+            transform: scale(0.95); 
+            outline: none; 
+        }
+
+        /* SVG */
+        svg polygon, svg ellipse, svg circle, svg line { 
+            fill: hsl(calc(var(--accent-h) + 2) var(--accent-s) calc(var(--accent-l) - 12%)); 
+        }
+
+        svg .eye { fill: #2b1b2b; }
+        svg .nose { fill: #f2c94c; }
+        svg .whiskers line { stroke: rgba(43,27,43,0.6); stroke-width: 2; }
+
+        svg .bow ellipse, svg .bow circle { 
+            fill: hsl(calc(var(--accent-h) - 20) var(--accent-s) calc(var(--accent-l) + 2%)); 
+        }
+
+        /* Corazones flotantes */
+        #floaters { position: absolute; inset: 0; pointer-events: none; }
+
+        .floater {
+          position: absolute;
+          animation: floatUp linear forwards;
+          opacity: 0.95;
+        }
+
+        .floater.tiny { width: 14px; height: 14px; }
+        .floater.small { width: 22px; height: 22px; }
+        .floater.medium { width: 36px; height: 36px; }
+
+        .floater.heart { background-repeat: no-repeat; background-size: contain; }
+
+        @keyframes floatUp {
+          0% { transform: translateY(20px) scale(0.9); opacity: 0; }
+          10% { opacity: 1; }
+          100% { transform: translateY(-400px) translateX(30px) rotate(30deg) scale(1.05); opacity: 0; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ===================== SECCIÓN DE DEDICATORIA ===================== -->
+
+    <h1>💗 Para ti, niña de ojitos bonitos 💗</h1>
+
+    <div class="card">
+        <p>
+            Eres como un universo rosa,  
+            una luz suave que brilla sin esfuerzo,  
+            un corazón bonito que abraza sin tocar.  
+            Si Hello Kitty pudiera hablar,  
+            diría que tú eres su personaje favorito.
+        </p>
+    </div>
+
+    <img class="hello-kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG73.png">
+
+    <!-- ===================== SECCIÓN INTERACTIVA ===================== -->
+
+    <div class="wrap">
+
+      <header class="topbar">
+        <h1>Universo Rosado</h1>
+        <button id="toggleConfetti">✨ Confetti</button>
+        <button id="changeHue">🎨 Cambiar tono</button>
+      </header>
+
+      <main class="stage">
+        <div class="kitty" id="kitty" tabindex="0">
+          <svg viewBox="0 0 200 200" width="250" height="250">
+            <polygon points="40,30 20,70 60,60" />
+            <polygon points="160,30 180,70 140,60" />
+            <ellipse cx="100" cy="100" rx="70" ry="68" />
+            <ellipse cx="75" cy="95" rx="8" ry="12" class="eye" />
+            <ellipse cx="125" cy="95" rx="8" ry="12" class="eye" />
+            <ellipse cx="100" cy="115" rx="6" ry="5" class="nose" />
+            <g class="whiskers">
+              <line x1="40" y1="110" x2="85" y2="110" />
+              <line x1="40" y1="120" x2="85" y2="122" />
+              <line x1="160" y1="110" x2="115" y2="110" />
+              <line x1="160" y1="120" x2="115" y2="122" />
+            </g>
+            <g class="bow" transform="translate(130,60) scale(0.9)">
+              <ellipse cx="0" cy="0" rx="18" ry="12" />
+              <ellipse cx="-26" cy="0" rx="16" ry="12" transform="rotate(-25)" />
+              <ellipse cx="26" cy="0" rx="16" ry="12" transform="rotate(25)" />
+              <circle cx="0" cy="0" r="7" />
+            </g>
+          </svg>
+        </div>
+
+        <div id="floaters"></div>
+      </main>
+
+    </div>
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+
+    <script>
+        const floaters = document.getElementById('floaters');
+        const toggleBtn = document.getElementById('toggleConfetti');
+        const changeHueBtn = document.getElementById('changeHue');
+        const kitty = document.getElementById('kitty');
+
+        let confettiOn = false;
+        let spawner = null;
+
+        function rand(min, max){ return Math.random() * (max - min) + min; }
+
+        function makeHeartSVG(color){
+          const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 29'><path fill='${color}' d='M23.6 0C20.3 0 17.8 1.9 16 4.1 14.2 1.9 11.7 0 8.4 0 3.8 0 0 3.6 0 8 0 14 16 29 16 29s16-15 16-21c0-4.4-3.8-8-8.4-8z'/></svg>`;
+          return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        function spawnFloater(){
+          const el = document.createElement('div');
+          const size = Math.random() > 0.6 ? 'tiny' : (Math.random() > 0.5 ? 'small' : 'medium');
+          el.className = `floater heart ${size}`;
+
+          const left = rand(10, 80);
+          el.style.left = left + '%';
+          el.style.bottom = '-10px';
+          const dur = rand(3.8, 6.2);
+          el.style.animationDuration = dur + 's';
+
+          const hue = getComputedStyle(document.documentElement).getPropertyValue('--accent-h').trim() || 340;
+          const color = `hsl(${Number(hue) + rand(-10,10)} 80% 65%)`;
+          el.style.backgroundImage = `url("${makeHeartSVG(color)}")`;
+
+          floaters.appendChild(el);
+          setTimeout(()=> el.remove(), dur * 1000 + 200);
+        }
+
+        toggleBtn.addEventListener('click', ()=>{
+          confettiOn = !confettiOn;
+          toggleBtn.textContent = confettiOn ? '💖 Confetti ON' : '✨ Confetti';
+
+          if(confettiOn){
+            spawner = setInterval(()=> spawnFloater(), 420);
+          } else {
+            clearInterval(spawner);
+            spawner = null;
+          }
+        });
+
+        changeHueBtn.addEventListener('click', ()=>{
+          const newHue = Math.floor(rand(320, 355));
+          document.documentElement.style.setProperty('--bg-h', newHue);
+          document.documentElement.style.setProperty('--accent-h', newHue - 8);
+        });
+
+        kitty.addEventListener('click', ()=>{
+          for(let i=0; i<16; i++){ spawnFloater(); }
+        });
+
+    </script>
+
+</body>
+</html>
